@@ -1,26 +1,39 @@
 package com.github.perscholas;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public abstract class TheSystem {
 	private HashMap<String, Item> itemCollection;
 
 	TheSystem() {
         itemCollection = new HashMap<String, Item>();
-        // Your code here
 	}
 
 	public Boolean checkAvailability(Item item) {
-		// Your code here
+		int availability = itemCollection.get(item.getItemName()).getAvailableQuantity();
+		if (availability == 0) {
+			return false;
+		}
+		return true;
 	}
 	
 	public Boolean add(Item item) {
-		// Your code here
+		if(item == null ) {
+			return false;
+		}
+		itemCollection.put(item.getItemName(), item);
+		return true;
 	}
 
 	public Item remove(String itemName) {
-		// Your code here
+		return this.itemCollection.remove(itemName);
+	}
+
+	public HashMap<String, Item> getItemCollection() {
+		return itemCollection;
 	}
 
 	public abstract void display();

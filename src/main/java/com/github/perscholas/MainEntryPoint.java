@@ -33,7 +33,6 @@ public class MainEntryPoint {
 				}
 				break;
 			case 2:
-				app.display();
 				System.out.println("Enter the name of the item");
 				reader.nextLine();
 				String item_name = reader.nextLine();
